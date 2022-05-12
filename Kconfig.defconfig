@@ -11,3 +11,10 @@ config ZMK_SPLIT_BLE_ROLE_CENTRAL
 	default y
 
 endif
+
+if SHIELD_LUCY_V02_LEFT || SHIELD_LUCY_V02_RIGHT
+
+config ZMK_SPLIT
+	default y
+
+endif
