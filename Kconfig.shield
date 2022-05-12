@@ -1,0 +1,21 @@
+# Copyright (c) 2020 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+config SHIELD_LUCY
+    bool
+
+config SHIELD_LUCY_V02_LEFT
+	def_bool $(shields_list_contains,lucy_v02_left)
+	select SHIELD_LUCY
+
+config SHIELD_LUCY_V02_RIGHT
+	def_bool $(shields_list_contains,lucy_v02_right)
+	select SHIELD_LUCY
+
+config SHIELD_LUCY_V03_LEFT
+	def_bool $(shields_list_contains,lucy_v03_left)
+	select SHIELD_LUCY
+
+config SHIELD_LUCY_V03_RIGHT
+	def_bool $(shields_list_contains,lucy_v03_right)
+	select SHIELD_LUCY

@@ -1,0 +1,11 @@
+file_format: "1"
+id: lucy_v02
+name: Lucy
+type: shield
+url: https://github.com/fractalysid/lucy-keyboard
+requires: [pro_micro]
+features:
+  - keys
+siblings:
+  - lucy_v02_left
+  - lucy_v02_right
