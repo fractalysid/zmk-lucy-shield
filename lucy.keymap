@@ -27,6 +27,18 @@
 
 / {
 
+/*    combos {
+        compatible = "zmk,combos";
+
+        // gets access to
+        combo_special {
+            timeout-ms = <50>;
+            layers= <COLEMAK>
+            key-positions = <15 33>;
+            bindings = <&mo SPECIAL>;
+        };
+*/
+
 // RIGHT NOW IT IS MEANT TO BE USED WITH THE ITALIAN QWERTY LAYOUT. THIS MAY CHANGE IN THE FUTURE IN ORDER TO USE THE EN-US
 
         keymap {
@@ -36,13 +48,13 @@
 // |    Q   |   W   |   F   |   P   |   B   |                           |  J   |   L   |   U   |   Y   |   BKSP    |
 // |    A   |   R   |   S   |   T   |   G   |                           |  M   |   N   |   E   |   I   |   O   |
 // |    Z   |   X   |   C   |   D   |   V   |                           |   K   |   H   |   ,   |   .   |   '   |
-//                          |   X   |   X   |   X   |           |   X   |   X   |   X   |
+//                          |   LAYER 2   |   RET   |   TAB   |           |   GUI   |   SPACE   |   LAYER 3   |
        		default_layer {
 		bindings = <
 		&kp Q &kp W &kp F &kp P &kp B 						&kp J &kp L  &kp U    &kp Y   &kp BKSP
 		&kp A &kp R &kp S &kp T &kp G 			        	&kp M &kp N &kp E &kp I &kp O
 		&mt LSHFT Z &kp X &kp C &kp D &kp V				        &kp K &kp H  &kp CMMA &kp DOT &mt LSHFT IT_SQUOT
-          				&mo LEFT &kp RET &kp TAB  				&kp LGUI &kp SPC &mo RIGHT
+          				&lt NAVIGATION TAB &lt SYMBOLS RET &none  				&none &lt FN_NUM_ACCS SPC &lt MEDIA_CTRL LGUI
 		>;
 		};
 
@@ -85,7 +97,7 @@
 		&kp ESC  &kp DELETE    &kp INSERT    &kp TAB    &kp PRINTSCREEN 			&kp SYSREQ &kp PAGE_DOWN   &kp UP   &kp PAGE_UP  &kp K_CMENU
 		&kp LGUI &kp LALT &kp LCTRL &kp LSHIFT &none  						            &kp HOME &kp LEFT  &kp DOWN &kp RIGHT &kp END
 		&caps_word  &none &none &none &none   			            	            &none &none  &none  &none &none
-					&trans &trans &trans  				                        	&trans &trans &trans
+					&trans &trans &trans  				                        	&trans &trans &mo SPECIAL
 		>;
 		};
 
@@ -99,19 +111,19 @@
 		&none  &none    &kp K_PASTE    &none    &none            			    &none &kp K_COPY   &kp K_CUT   &kp K_UNDO  &kp K_REDO
 		&none  &kp K_MUTE    &kp K_VOLUME_DOWN &kp K_VOLUME_UP &none  			&none &kp K_PLAY_PAUSE  &kp K_PREV &kp K_NEXT &kp K_STOP2
 		&kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC &none &none &none   			&none &none &none &none &none
-					&trans &trans &trans  					                    &trans &trans &trans
+					&mo SPECIAL &trans &trans  					                    &trans &trans &trans
 		>;
 		};
 
 // SPECIAL LAYER TO CONTROL KEYBOARD FEATURES
 // |    &reset   |   &bootloader   |      |      |   &out OUT_USB   |                           |   &out OUT_BLE   |      |      |   &bootloader   |   &reset   |
-// |       |      |      |      |      |                                                        |      |      |      |      |      |
+// |       |      |      |   TO QWERTY    |     |                                                        |      |   TO QWERTY    |      |      |      |
 // |    &bt BT_PRV   |      |      |      |   &bt BT_CLR   |                                 |   &bt BT_SEL0   |      |       |       |   &bt BT_NXT    |
 //                          |   X   |   X   |   X   |                                       |   X   |   X   |   X   |
 		    special_layer {
 		bindings = <
 		&reset  &bootloader &none &none &out OUT_USB 			         &out OUT_BLE &none   &none   &bootloader  &reset
-		&none &none &none &none &none  						                     &none &none  &none &none &none
+		&none &none &none &tog QWERTY &none  						                     &none &tog QWERTY  &none &none &none
 		&bt BT_PRV  &none &none &none &bt BT_CLR   				                 &bt BT_SEL 0 &none  &none  &none &bt BT_NXT
 				            	&trans &trans &trans  					         &trans &trans &trans
 		>;
