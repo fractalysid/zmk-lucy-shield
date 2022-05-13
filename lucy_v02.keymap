@@ -25,93 +25,109 @@
 
 / {
 
+// RIGHT NOW IT IS MEANT TO BE USED WITH THE ITALIAN QWERTY LAYOUT. THIS MAY CHANGE IN THE FUTURE IN ORDER TO USE THE EN-US
+        keymap {
+                compatible = "zmk,keymap";
+
 //  COLEMAK-DH
 // |    Q   |   W   |   F   |   P   |   B   |                           |  J   |   L   |   U   |   Y   |   BKSP    |
 // |    A   |   R   |   S   |   T   |   G   |                           |  M   |   N   |   E   |   I   |   O   |
 // |    Z   |   X   |   C   |   D   |   V   |                           |   K   |   H   |   ,   |   .   |   '   |
 //                          |   X   |   X   |   X   |           |   X   |   X   |   X   |
-        keymap {
-                compatible = "zmk,keymap";
-                
        		default_layer {
 		bindings = <
 		&kp Q &kp W &kp F &kp P &kp B 						&kp J &kp L  &kp U    &kp Y   &kp BKSP
 		&kp A &kp R &kp S &kp T &kp G 			        	&kp M &kp N &kp E &kp I &kp O
-		&mt LSHFT Z &kp X &kp C &kp D &kp V				        &kp K &kp H  &kp CMMA &kp DOT &kp SQT
+		&mt LSHFT Z &kp X &kp C &kp D &kp V				        &kp K &kp H  &kp CMMA &kp DOT &MT LSHFT IT_SQUOT
           				&mo LEFT &kp RET &kp TAB  				&kp LGUI &kp SPC &mo RIGHT
 		>;
 		};
 
 //  SYMBOLS
-// TODO: valutare l'idea di mettere le parentesi tra sinistra e destra, speculari. es: ( indice sinistro, ) indice destro
-// |    |   |   !   |   "   |   £   |   $   |                           |   &   |   /   |   \   |   ?   |   "   |
-// |    [   |   ]   |   (   |   )   |   {   |                           |   }   |   <   |   >   |   -   |   _   |
-// |    +   |   *   |   €   |   @   |   #   |                           |   +   |   *   |   =   |   ~    |   ^   |
+// |   !   |   "   |   £   |   $   |    %   |                           |   &   |   /   |   \   |   ?   |   ^   |
+// |    <   |   {   |   [   |   (   |   #   |                           |   _   |   )   |   ]   |   }   |   >   |
+// |    |   |   ~   |   €   |   @   |   `   |                           |   §   |   +   |   -   |   *    |   =   |
 //                          |   X   |   X   |   X   |           |   X   |   X   |   X   |
        		symbols_layer {
 		bindings = <
-		&kp NUM_1  &kp NUM_2    &kp NUM_3    &kp NUM_4    &kp NUM_5		&kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 
-		&kp ESC    &kp LC(S)    &kp DQT      &kp PIPE2     &kp HASH 		&kp MINUS &kp EQL  &kp LBKT &kp RBKT  &kp DEL
-		&kp TAB    &kp TILDE 	&kp NON_US_BSLH &kp NON_US_HASH  &kp TILDE2 	&kp MINUS &kp GRAVE &kp LBKT &kp RBKT  &kp DEL
-					    &mo LEFT  &kp LGUI &trans  					&trans &kp RGUI &mo RIGHT
+		&kp IT_EXCL    &kp IT_DQUOT    &kp IT_PND    &kp IT_USD	&kp IT_PERC     	        &kp IT_AND &kp IT_FSLH &kp IT_BSLH &kp IT_QUES &kp IT_CARET
+		&kp IT_LESS    &kp IT_LBRC    &kp IT_LBKT      &kp IT_LPAR     &kp IT_HASH   		&kp IT_UNDER &kp IT_RPAR  &kp IT_RBKT &kp IT_RBRC  &kp IT_GREAT
+		&kp IT_PIPE    &kp IT_TILDE 	&kp IT_EUR &kp IT_AT  &IT_BKTK 	                    &none &kp IT_PLUS &kp IT_MINUS &kp IT_AST  &kp IT_EQL
+					                                &trans  &trans &trans  			  &trans &trans &trans
 		>;
 		};
 
 // FUNCTIONS KEYS, NUMBERS AND ACCENTS
 // |   F1   |   F2   |   F3   |   F4   |   F5   |                       |   F6   |   F7   |   F8   |   F9   |   F10   |
 // |    1   |   2   |   3   |   4   |   5   |                           |   6   |   7   |   8   |   9   |   0   |
-// |    à   |   è   |   é   |   ò   |   ì   |                           |   ù   |   º   |   §    |      |       |
+// |    à   |   è   |   é   |   ò   |   ì   |                           |   ù   |   È    |       |      |       |
 //                          |   X   |   X   |   X   |           |   X   |   X   |   X   |
 		    numbers_layer {
 		bindings = <
-		&kp BANG  &kp ATSN &kp HASH  &kp DLLR  &kp PRCT    			&kp CRRT  &kp AMPS &kp KMLT &kp LPRN &kp RPRN 
-		&kp HASH  &kp QMARK  &kp FSLH  &kp COLN  &kp SCLN 			&kp MINUS &kp KP_EQUAL  &kp LBRC  &kp RBRC   &kp BKSP
-		&kp LSFT  &kp KPLS &kp LBKT &kp RBKT   &kp BSLH    			&kp UNDER &kp LEFT &kp DOWN &kp UP  &kp RIGHT
-					  &mo TRI &kp LCTL &trans  				&trans &kp SPC  &mo RIGHT
+		&kp F1  &kp F2 &kp F3  &kp F4  &kp F5    		                        	&kp F6  &kp F7 &kp F8 &kp F9 &kp F10
+		&kp N1  &kp N2  &kp N3  &kp N4  &kp N5 		                            	&kp N6 &kp N7  &kp N8  &kp  N9   &kp N0
+		&kp IT_AGRV  &kp IT_EGRV &kp IT_EACU &kp IT_OGRV   &kp IT_IGRV    			&kp IT_UGRV &kp IT_CEGR &none &none  &none
+					                                &trans  &trans &trans  			&trans &trans &trans
 		>;
 		};	
 
 // NAVIGATION LAYER
 // TODO: aggiungere la navigazione con il mouse quando disponibile nel branch master di zmk
 // |   ESC   |   DELETE   |   INSERT  |   TAB   |   PRINTSCREEN   |                           |   SYSREQ   |   PAGE_DOWN   |   UP   |   PAGE_UP   |   K_CMENU   |
-// |    GUI   |   ALT   |   CTRL   |   SHIFT   |       |                           |   HOME   |   LEFT   |   DOWN   |   RIGHT   |   END   |
-// |   &caps_word    |      |      |      |      |                           |      |      |       |       |       |
-//                          |   X   |   X   |   X   |           |   X   |   X   |   X   |
+// |    GUI   |   ALT   |   CTRL   |   SHIFT   |       |                                      |   HOME   |   LEFT   |   DOWN   |   RIGHT   |   END   |
+// |   &caps_word    |      |      |      |      |                                            |      |      |       |       |       |
+//                          |   X   |   X   |   X   |                                           |   X   |   X   |   X   |
 		    navigation_layer {
 		bindings = <
-		&kp NUM_1  &kp NUM_2    &kp NUM_3    &kp NUM_4    &kp NUM_5 			&trans &trans   &trans   &trans  &trans
-		&kp F1 &kp F2 &kp F3 &kp F4 &kp F5  						&trans &kp PG_UP  &kp K_VOL_UP &kp K_MUTE &trans
-		&bt BT_CLR  &bt BT_NXT &bt BT_PRV &kp F6 &kp F7   				&trans &kp PG_DN  &kp K_VOL_DN  &trans &trans
-					&trans &trans &trans  					&trans &trans &trans
+		&kp ESC  &kp DELETE    &kp INSERT    &kp TAB    &kp PRINTSCREEN 			&kp SYSREQ &kp PAGE_DOWN   &kp UP   &kp PAGE_UP  &kp K_CMENU
+		&kp GUI &kp ALT &kp CTRL &kp SHIFT &none  						            &kp HOME &kp LEFT  &kp DOWN &kp RIGHT &kp END
+		&caps_word  &none &none &none &none   			            	            &none &none  &none  &none &none
+					&trans &trans &trans  				                        	&trans &trans &trans
 		>;
 		};
 
 // MEDIA & CONTROLS
-// |       |      |      |   K_PASTE   |      |                           |      |   K_COPY   |   K_CUT   |   K_UNDO   |   K_REDO   |
-// |       |     |   K_VOLUME_DOWN   |   K_VOLUME_UP   |   K_MUTE   |                           |      |   K_PLAY_PAUSE   |   K_PREV   |   K_NEXT   |   K_STOP2   |
+// |       |      |      |   K_PASTE   |      |                                                 |      |   K_COPY   |   K_CUT   |   K_UNDO   |   K_REDO   |
+// |       |   K_MUTE  |   K_VOLUME_DOWN   |   K_VOLUME_UP   |     |                           |      |   K_PLAY_PAUSE   |   K_PREV   |   K_NEXT   |   K_STOP2   |
 // |    C_BRIGHTNESS_DEC    |   C_BRIGHTNESS_INC    |       |       |       |                           |       |      |       |       |       |
 //                          |   X   |   X   |   X   |           |   X   |   X   |   X   |
 		    fn_media_layer {
 		bindings = <
-		&kp NUM_1  &kp NUM_2    &kp NUM_3    &kp NUM_4    &kp NUM_5 			&trans &trans   &trans   &trans  &trans
-		&kp F1 &kp F2 &kp F3 &kp F4 &kp F5  						&trans &kp PG_UP  &kp K_VOL_UP &kp K_MUTE &trans 
-		&bt BT_CLR  &bt BT_NXT &bt BT_PRV &kp F6 &kp F7   				&trans &kp PG_DN  &kp K_VOL_DN  &trans &trans   
-					&trans &trans &trans  					&trans &trans &trans
+		&none  &none    &kp K_PASTE    &none    &none            			    &none &kp K_COPY   &kp K_CUT   &kp K_UNDO  &kp K_REDO
+		&none  &kp K_MUTE    &kp K_VOLUME_DOWN &kp K_VOLUME_UP &none  			&none &kp K_PLAY_PAUSE  &kp K_PREV &kp K_NEXT &kp K_STOP2
+		&kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC &none &none &none   			&none &none &none &none &none
+					&trans &trans &trans  					                    &trans &trans &trans
 		>;
 		};
 
 // SPECIAL LAYER TO CONTROL KEYBOARD FEATURES
-// |    &reset   |   &bootloader   |   "   |   £   |   &out OUT_USB   |                           |   &out OUT_USB   |      |      |   &bootloader   |   &reset   |
-// |       |      |      |      |      |                           |      |      |      |      |      |
-// |    &bt BT_PRV   |      |      |      |   &bt BT_CLR   |                           |   &bt BT_SEL0   |      |       |       |   &bt BT_NXT    |
-//                          |   X   |   X   |   X   |           |   X   |   X   |   X   |
+// |    &reset   |   &bootloader   |      |      |   &out OUT_USB   |                           |   &out OUT_BLE   |      |      |   &bootloader   |   &reset   |
+// |       |      |      |      |      |                                                        |      |      |      |      |      |
+// |    &bt BT_PRV   |      |      |      |   &bt BT_CLR   |                                 |   &bt BT_SEL0   |      |       |       |   &bt BT_NXT    |
+//                          |   X   |   X   |   X   |                                       |   X   |   X   |   X   |
 		    special_layer {
 		bindings = <
-		&kp NUM_1  &kp NUM_2    &kp NUM_3    &kp NUM_4    &kp NUM_5 			&trans &trans   &trans   &trans  &trans
-		&kp F1 &kp F2 &kp F3 &kp F4 &kp F5  						&trans &kp PG_UP  &kp K_VOL_UP &kp K_MUTE &trans
-		&bt BT_CLR  &bt BT_NXT &bt BT_PRV &kp F6 &kp F7   				&trans &kp PG_DN  &kp K_VOL_DN  &trans &trans
-					&trans &trans &trans  					&trans &trans &trans
+		&reset  &bootloader    &none    &none    &out OUT_USB 			         &out OUT_BLE &none   &none   &bootloader  &reset
+		&none &none &none &none &none  						                     &trans &none  &none &none &none
+		&bt BT_PRV  &none &none &none &bt BT_CLR   				                 &bt BT_SEL0 &none  &none  &none &bt BT_NXT
+				            	&trans &trans &trans  					         &trans &trans &trans
 		>;
 		};
+
+//  QWERTY, mainly for gaming
+// |    Q   |   W   |   E   |   R   |   T   |                           |  Y   |   U   |   I   |   O   |   P    |
+// |    A   |   S  |   D   |   F   |   G   |                           |  H   |   J   |   K   |   L   |  Ò   |
+// |    Z   |   X   |   C   |   V   |   B   |                           |   N   |   M   |   ,   |   .   |   -   |
+//                          |   X   |   X   |   X   |           |   X   |   X   |   X   |
+
+       		qwerty_layer {
+		bindings = <
+		&kp Q &kp W &kp E &kp R  &kp T 						&kp Y &kp U  &kp I    &kp O   &kp P
+		&kp A &kp S &kp D &kp F &kp G 			        	&kp H &kp J &kp K &kp L &kp
+		&mt LSHFT Z &kp X &kp C &kp V &kp B				        &kp K &kp H  &kp CMMA &kp DOT &kp SQT
+          				&kp RET &kp SPC &lt COLEMAK   			 &lt COLEMAK &kp SPC &kp BKSP
+		>;
+		};
+
 	};
 };
