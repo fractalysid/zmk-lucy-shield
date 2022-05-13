@@ -9,20 +9,27 @@
 #include <dt-bindings/zmk/bt.h>
 
 
-#define COLEMAK 0
-#define LEFT    1
-#define RIGHT   2
-#define TRI     3
-#define QWERTY  4
-  
+#define COLEMAK             0
+#define SYMBOLS             1
+#define FN_NUM_ACCS         2
+#define NAVIGATION          3
+#define MEDIA_CTRL          4
+#define SPECIAL             5
+
+#define QWERTY              8
 
 &mt {
   // flavor = "tap-preferred";
   // tapping_term_ms = <200>;
 };
 
-/ { 
+/ {
 
+//  COLEMAK-DH
+// |    Q   |   W   |   F   |   P   |   B   |                           |  J   |   L   |   U   |   Y   |   BKSP    |
+// |    A   |   R   |   S   |   T   |   G   |                           |  M   |   N   |   E   |   I   |   O   |
+// |    Z   |   X   |   C   |   D   |   V   |                           |   K   |   H   |   ,   |   .   |   '   |
+//                          |   X   |   X   |   X   |           |   X   |   X   |   X   |
         keymap {
                 compatible = "zmk,keymap";
                 
@@ -30,12 +37,18 @@
 		bindings = <
 		&kp Q &kp W &kp F &kp P &kp B 						&kp J &kp L  &kp U    &kp Y   &kp BKSP
 		&kp A &kp R &kp S &kp T &kp G 			        	&kp M &kp N &kp E &kp I &kp O
-		&kp Z &kp X &kp C &kp D &kp V				        &kp K &kp H  &kp CMMA &kp DOT &kp SQT
+		&mt LSHFT Z &kp X &kp C &kp D &kp V				        &kp K &kp H  &kp CMMA &kp DOT &kp SQT
           				&mo LEFT &kp RET &kp TAB  				&kp LGUI &kp SPC &mo RIGHT
 		>;
 		};
 
-       		left_layer {
+//  SYMBOLS
+// TODO: valutare l'idea di mettere le parentesi tra sinistra e destra, speculari. es: ( indice sinistro, ) indice destro
+// |    |   |   !   |   "   |   £   |   $   |                           |   &   |   /   |   \   |   ?   |   "   |
+// |    [   |   ]   |   (   |   )   |   {   |                           |   }   |   <   |   >   |   -   |   _   |
+// |    +   |   *   |   €   |   @   |   #   |                           |   +   |   *   |   =   |   ~    |   ^   |
+//                          |   X   |   X   |   X   |           |   X   |   X   |   X   |
+       		symbols_layer {
 		bindings = <
 		&kp NUM_1  &kp NUM_2    &kp NUM_3    &kp NUM_4    &kp NUM_5		&kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 
 		&kp ESC    &kp LC(S)    &kp DQT      &kp PIPE2     &kp HASH 		&kp MINUS &kp EQL  &kp LBKT &kp RBKT  &kp DEL
@@ -43,8 +56,13 @@
 					    &mo LEFT  &kp LGUI &trans  					&trans &kp RGUI &mo RIGHT
 		>;
 		};
-		
-		right_layer {
+
+// FUNCTIONS KEYS, NUMBERS AND ACCENTS
+// |   F1   |   F2   |   F3   |   F4   |   F5   |                       |   F6   |   F7   |   F8   |   F9   |   F10   |
+// |    1   |   2   |   3   |   4   |   5   |                           |   6   |   7   |   8   |   9   |   0   |
+// |    à   |   è   |   é   |   ò   |   ì   |                           |   ù   |   º   |   §    |      |       |
+//                          |   X   |   X   |   X   |           |   X   |   X   |   X   |
+		    numbers_layer {
 		bindings = <
 		&kp BANG  &kp ATSN &kp HASH  &kp DLLR  &kp PRCT    			&kp CRRT  &kp AMPS &kp KMLT &kp LPRN &kp RPRN 
 		&kp HASH  &kp QMARK  &kp FSLH  &kp COLN  &kp SCLN 			&kp MINUS &kp KP_EQUAL  &kp LBRC  &kp RBRC   &kp BKSP
@@ -52,15 +70,48 @@
 					  &mo TRI &kp LCTL &trans  				&trans &kp SPC  &mo RIGHT
 		>;
 		};	
-		
-		tri_layer {
+
+// NAVIGATION LAYER
+// TODO: aggiungere la navigazione con il mouse quando disponibile nel branch master di zmk
+// |   ESC   |   DELETE   |   INSERT  |   TAB   |   PRINTSCREEN   |                           |   SYSREQ   |   PAGE_DOWN   |   UP   |   PAGE_UP   |   K_CMENU   |
+// |    GUI   |   ALT   |   CTRL   |   SHIFT   |       |                           |   HOME   |   LEFT   |   DOWN   |   RIGHT   |   END   |
+// |   &caps_word    |      |      |      |      |                           |      |      |       |       |       |
+//                          |   X   |   X   |   X   |           |   X   |   X   |   X   |
+		    navigation_layer {
+		bindings = <
+		&kp NUM_1  &kp NUM_2    &kp NUM_3    &kp NUM_4    &kp NUM_5 			&trans &trans   &trans   &trans  &trans
+		&kp F1 &kp F2 &kp F3 &kp F4 &kp F5  						&trans &kp PG_UP  &kp K_VOL_UP &kp K_MUTE &trans
+		&bt BT_CLR  &bt BT_NXT &bt BT_PRV &kp F6 &kp F7   				&trans &kp PG_DN  &kp K_VOL_DN  &trans &trans
+					&trans &trans &trans  					&trans &trans &trans
+		>;
+		};
+
+// MEDIA & CONTROLS
+// |       |      |      |   K_PASTE   |      |                           |      |   K_COPY   |   K_CUT   |   K_UNDO   |   K_REDO   |
+// |       |     |   K_VOLUME_DOWN   |   K_VOLUME_UP   |   K_MUTE   |                           |      |   K_PLAY_PAUSE   |   K_PREV   |   K_NEXT   |   K_STOP2   |
+// |    C_BRIGHTNESS_DEC    |   C_BRIGHTNESS_INC    |       |       |       |                           |       |      |       |       |       |
+//                          |   X   |   X   |   X   |           |   X   |   X   |   X   |
+		    fn_media_layer {
 		bindings = <
 		&kp NUM_1  &kp NUM_2    &kp NUM_3    &kp NUM_4    &kp NUM_5 			&trans &trans   &trans   &trans  &trans
 		&kp F1 &kp F2 &kp F3 &kp F4 &kp F5  						&trans &kp PG_UP  &kp K_VOL_UP &kp K_MUTE &trans 
 		&bt BT_CLR  &bt BT_NXT &bt BT_PRV &kp F6 &kp F7   				&trans &kp PG_DN  &kp K_VOL_DN  &trans &trans   
 					&trans &trans &trans  					&trans &trans &trans
 		>;
-		};	
-        
+		};
+
+// SPECIAL LAYER TO CONTROL KEYBOARD FEATURES
+// |    &reset   |   &bootloader   |   "   |   £   |   &out OUT_USB   |                           |   &out OUT_USB   |      |      |   &bootloader   |   &reset   |
+// |       |      |      |      |      |                           |      |      |      |      |      |
+// |    &bt BT_PRV   |      |      |      |   &bt BT_CLR   |                           |   &bt BT_SEL0   |      |       |       |   &bt BT_NXT    |
+//                          |   X   |   X   |   X   |           |   X   |   X   |   X   |
+		    special_layer {
+		bindings = <
+		&kp NUM_1  &kp NUM_2    &kp NUM_3    &kp NUM_4    &kp NUM_5 			&trans &trans   &trans   &trans  &trans
+		&kp F1 &kp F2 &kp F3 &kp F4 &kp F5  						&trans &kp PG_UP  &kp K_VOL_UP &kp K_MUTE &trans
+		&bt BT_CLR  &bt BT_NXT &bt BT_PRV &kp F6 &kp F7   				&trans &kp PG_DN  &kp K_VOL_DN  &trans &trans
+					&trans &trans &trans  					&trans &trans &trans
+		>;
+		};
 	};
 };
