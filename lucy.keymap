@@ -53,7 +53,7 @@
 		bindings = <
 		&kp Q &kp W &kp F &kp P &kp B 						&kp J &kp L  &kp U    &kp Y   &kp BKSP
 		&kp A &kp R &kp S &kp T &kp G 			        	&kp M &kp N &kp E &kp I &kp O
-		&mt LSHFT Z &kp X &kp C &kp D &kp V				        &kp K &kp H  &kp CMMA &kp DOT &mt LSHFT IT_SQUOT
+		&mt LSHFT Z &mt LCTRL X &mt LALT C &kp D &kp V				        &kp K &kp H  &mt LALT CMMA &mt LCTRL DOT &mt LSHFT IT_SQUOT
           				&lt NAVIGATION TAB &lt SYMBOLS RET &none  				&none &lt FN_NUM_ACCS SPC &lt MEDIA_CTRL LGUI
 		>;
 		};
@@ -73,6 +73,7 @@
 		};
 
 // FUNCTIONS KEYS, NUMBERS AND ACCENTS
+// TODO: F11 e F12 mancano. Posso pensare di aggiungerli sul thumb cluster
 // |   F1   |   F2   |   F3   |   F4   |   F5   |                       |   F6   |   F7   |   F8   |   F9   |   F10   |
 // |    1   |   2   |   3   |   4   |   5   |                           |   6   |   7   |   8   |   9   |   0   |
 // |    à   |   è   |   é   |   ò   |   ì   |                           |   ù   |   È    |   ,   |   .  |       |
