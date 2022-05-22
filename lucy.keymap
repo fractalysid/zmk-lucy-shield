@@ -124,7 +124,7 @@
 		    special_layer {
 		bindings = <
 		&reset  &bootloader &none &none &out OUT_USB 			         &out OUT_BLE &none   &none   &bootloader  &reset
-		&none &none &none &tog QWERTY &none  						     &none &tog QWERTY  &none &none &none
+		&none &none &none &to QWERTY &none  						     &none &to QWERTY  &none &none &none
 		&bt BT_PRV  &bt BT_NXT &none &none &bt BT_CLR   	             &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
 
 				            	&trans &trans &trans  					         &trans &trans &trans
@@ -141,7 +141,7 @@
 		&kp Q &kp W &kp E &kp R  &kp T 						&kp Y &kp U  &kp I &kp O &kp P
 		&kp A &kp S &kp D &kp F &kp G 			        	&kp H &kp J &kp K &kp L &kp IT_OGRV
 		&mt LSHFT Z &kp X &kp C &kp V &kp B				    &kp K &kp H  &kp CMMA &kp DOT &kp IT_MINUS
-          				&kp RET &kp SPC &tog COLEMAK   		&tog COLEMAK &kp SPC &kp BKSP
+          				&kp RET &kp SPC &to COLEMAK   		&to COLEMAK &kp SPC &kp BKSP
 		>;
 		};
 
