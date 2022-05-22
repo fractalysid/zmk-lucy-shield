@@ -18,7 +18,7 @@
 #define MEDIA_CTRL          4
 #define SPECIAL             5
 
-#define QWERTY              8
+#define QWERTY              6
 
 &mt {
   // flavor = "tap-preferred";
