@@ -18,8 +18,8 @@
 #define IT_EXCL LS(N1)           // !
 #define IT_SQUOT MINUS           // '
 #define IT_DQUOT LS(N2)          // "
-#define IT_MINUS RBKT            // -
-#define IT_PLUS SLASH            // +
+#define IT_MINUS SLASH           // -
+#define IT_PLUS RBKT             // +
 #define IT_AST LS(RBKT)          // *
 #define IT_FSLH LS(N7)           // /
 #define IT_UNDER LS(SLASH)       // _
@@ -38,4 +38,4 @@
 #define IT_EACU LS(LBKT)         // é
 #define IT_UGRV NON_US_HASH      // ù
 #define IT_OGRV SEMI             // ò
-
+#define IT_GRAD LS(APOS)         // °
