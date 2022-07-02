@@ -31,7 +31,7 @@
 #define IT_BSLH GRAVE            // backslash
 #define IT_AND LS(N6)            // &
 #define IT_PIPE LS(GRAVE)        // |
-#define IT_CEGR RA(LS(E))        // È
+#define IT_CEGR 212             //RA(LS(E))        // È
 #define IT_AGRV APOS             // à
 #define IT_IGRV EQUAL            // ì
 #define IT_EGRV LBKT             // è
