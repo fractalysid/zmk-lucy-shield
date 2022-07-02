@@ -38,4 +38,35 @@
 #define IT_EACU LS(LBKT)         // é
 #define IT_UGRV NON_US_HASH      // ù
 #define IT_OGRV SEMI             // ò
-#define IT_GRAD LS(APOS)         // °
+#define IT_DEGREE LS(APOS)       // °
+
+// Rare symbols and symbols used in other languages (I will later add the symbols after comments, right now they are not mapped anywhere)
+#define IT_CENT RA(LS(E))                   //
+#define IT_COPYRIGHT RA(LS(C))              //
+#define IT_AE_LOWER RA(A)                   //
+#define IT_AE_UPPER RA(LS(A))               //
+#define IT_SS RA(S)                         //
+#define IT_CYR_K RA(K)                      //
+#define IT_OMEGA RA(LS(Q))                  //
+#define IT_RIGHTS RA(LS(R))                 //
+#define IT_CYR_I RA(LS(I))                  //
+#define IT_CEDIGLIA RA(LS(SEMI))            //
+#define IT_C_CEDIGLIA LS(SEMI)              //
+#define IT_SECTION LS(NON_US_HASH)          //
+#define IT_ORDINAL LS(APOS)                 //
+#define IT_YEN RA(LS(Y))                    //
+#define IT_VIRGOLETTE_L RA(NON_US_BSLH)     //
+#define IT_VIRGOLETTE_R RA(LS(NON_US_BSLH)) //
+#define IT_TRADEMARK RA(LS(N8))             //
+#define IT_UPDOWN_QSMARK RA(LS(MINUS))      //
+
+#define IT_PLUSMINUS RA(LS(N9))     //
+#define IT_POW_1 RA(N1)             //
+#define IT_POW_2 RA(N2)             //
+#define IT_POW_3 RA(N3)             //
+#define IT_ONE_FOURTH RA(N4)        //
+#define IT_ONE_EIGHTH RA(LS(N4))    //
+#define IT_ONE_HALF RA(N5)          //
+#define IT_THREE_EIGHTH RA(LS(N5))  //
+#define IT_FIVE_EIGHTH RA(LS(N6))   //
+#define IT_SEVEN_EIGHTH RA(LS(N7))  //
